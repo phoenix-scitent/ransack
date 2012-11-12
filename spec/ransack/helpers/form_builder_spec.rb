@@ -47,11 +47,11 @@ module Ransack
 
       end
 
-      describe '#sort_link' do
-        subject { @f.sort_link :name, :controller => 'people' }
+      describe '#ransack_sort_link' do
+        subject { @f.ransack_sort_link :name, :controller => 'people' }
 
         it { should match /people\?q%5Bs%5D=name\+asc/}
-        it { should match /sort_link/}
+        it { should match /ransack_sort_link/}
         it { should match /Full Name<\/a>/}
       end
 

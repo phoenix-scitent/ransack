@@ -25,22 +25,22 @@ module Ransack
         end
       end
 
-      describe '#sort_link with default search_key' do
-        subject { @controller.view_context.sort_link([:main_app, Person.search(:sorts => ['name desc'])], :name, :controller => 'people') }
+      describe '#ransack_sort_link with default search_key' do
+        subject { @controller.view_context.ransack_sort_link([:main_app, Person.search(:sorts => ['name desc'])], :name, :controller => 'people') }
         it { should match /people\?q%5Bs%5D=name\+asc/ }
-        it { should match /sort_link desc/ }
+        it { should match /ransack_sort_link desc/ }
         it { should match /Full Name &#9660;/ }
       end
 
-      describe '#sort_link with default search_key defined as symbol' do
-        subject { @controller.view_context.sort_link(Person.search({:sorts => ['name desc']}, :search_key => :people_search),
+      describe '#ransack_sort_link with default search_key defined as symbol' do
+        subject { @controller.view_context.ransack_sort_link(Person.search({:sorts => ['name desc']}, :search_key => :people_search),
                                                      :name, :controller => 'people') }
 
         it { should match /people\?people_search%5Bs%5D=name\+asc/ }
       end
 
-      describe '#sort_link with default search_key defined as string' do
-        subject { @controller.view_context.sort_link(Person.search({:sorts => ['name desc']}, :search_key => 'people_search'),
+      describe '#ransack_sort_link with default search_key defined as string' do
+        subject { @controller.view_context.ransack_sort_link(Person.search({:sorts => ['name desc']}, :search_key => 'people_search'),
                                                        :name, :controller => 'people') }
 
         it { should match /people\?people_search%5Bs%5D=name\+asc/ }
