@@ -35,7 +35,7 @@ module Ransack
       end if compounds
     end
 
-    # default search_key that, it can be overridden on sort_link level
+    # default search_key that, it can be overridden on ransack_sort_link level
     def search_key=(name)
       self.options[:search_key] = name
     end

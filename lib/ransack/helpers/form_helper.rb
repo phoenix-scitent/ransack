@@ -24,7 +24,7 @@ module Ransack
         form_for(record, options, &proc)
       end
 
-      def sort_link(search, attribute, *args)
+      def ransack_sort_link(search, attribute, *args)
         # Extract out a routing proxy for url_for scoping later
         if search.is_a?(Array)
           routing_proxy = search.shift
@@ -54,7 +54,7 @@ module Ransack
         end
 
         html_options = args.first.is_a?(Hash) ? args.shift.dup : {}
-        css = ['sort_link', current_dir].compact.join(' ')
+        css = ['ransack_sort_link', current_dir].compact.join(' ')
         html_options[:class] = [css, html_options[:class]].compact.join(' ')
         query_hash = {}
         query_hash[search.context.search_key] = search_params.merge(:s => "#{attr_name} #{new_dir}")
